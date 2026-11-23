@@ -102,7 +102,6 @@ p { margin: 0 0 1em; }
 .laman-produk .nav a[aria-current="page"] { color: var(--aksen); }
 .laman-produk :focus-visible { outline-color: var(--aksen); }
 .catatan-web { margin: 1rem 0 0; color: var(--redup); }
-.tautan-produk { color: var(--aksen); font-weight: 600; }
 .beranda .sub { max-width: 31ch; }
 .beranda .tombol { margin-top: .35rem; }
 .beranda, .bidang-lumut {
@@ -140,6 +139,36 @@ p { margin: 0 0 1em; }
 .bidang-merek img { width: clamp(7rem, 17vw, 13rem); }
 .profil-studio { padding-block: clamp(3rem, 8vw, 7rem); }
 .profil-studio p { max-width: 63ch; }
+.aplikasi-studio { margin-top: clamp(2.5rem, 6vw, 4rem); }
+.kumpulan-kartu-aplikasi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+}
+.kartu-aplikasi {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  border: 1px solid #d9cce3;
+  border-top: .25rem solid var(--aksen);
+  border-radius: .75rem;
+  color: #2b2331;
+  text-decoration: none;
+}
+.kartu-aplikasi.tema-ruangtulis { background: #f3edf8; }
+.kartu-aplikasi.tema-ruangbaca { background: #eae0f3; }
+.kartu-aplikasi img {
+  width: 4rem;
+  border-radius: 22%;
+  box-shadow: 0 0 0 1px #d9cce3;
+  margin-bottom: 1.15rem;
+}
+.kartu-aplikasi p { color: #584b62; }
+.aksi-kartu-aplikasi { margin-top: auto; color: #543a6b; font-weight: 600; }
+.kartu-aplikasi:is(:hover, :focus-visible) { border-color: var(--aksen); }
+.kartu-aplikasi:is(:hover, :focus-visible) .aksi-kartu-aplikasi { text-decoration: underline; }
+.kartu-aplikasi:focus-visible { outline-color: var(--aksen); }
 
 .lencana { display: inline-block; padding: .2rem .65rem; border: 1px solid currentColor; border-radius: 100vw; font-size: .875rem; }
 a:hover { text-decoration-thickness: 2px; }
