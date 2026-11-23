@@ -8,8 +8,7 @@
   --kertas: #f8f5ee;
   --redup: #4b574e;
   --garis: #c9cec4;
-  --hijau: #243b30;
-  --daun: #e0eadb;
+  --aksen: #243b30;
   --pasir: #f1dfc9;
   --lebar: 76rem;
 }
@@ -40,7 +39,7 @@ p { margin: 0 0 1em; }
   top: 1rem;
   left: 1rem;
   transform: translateY(-200%);
-  background: var(--hijau);
+  background: var(--aksen);
   color: white;
   padding: .65rem 1rem;
 }
@@ -70,7 +69,7 @@ p { margin: 0 0 1em; }
 .laman-studio {
   --kertas: #fcfaf3;
   --tinta: #29262a;
-  --hijau: #3d4c36;
+  --aksen: #3d4c36;
   --redup: #50594a;
   --garis: #d9d8ca;
 }
@@ -84,7 +83,26 @@ p { margin: 0 0 1em; }
 }
 .sub, .makna { max-width: 42ch; color: var(--redup); font-size: clamp(1.08rem, 2vw, 1.27rem); }
 .produk-kepala p { max-width: 66ch; }
-.produk-kepala:nth-child(1) { background: var(--daun); }
+.laman-produk {
+  --kertas: #faf7fc;
+  --tinta: #2b2331;
+  --redup: #584b62;
+  --garis: #d9cce3;
+  --permukaan-produk: #f5f0fa;
+  --sorotan-produk: #eae0f3;
+}
+.tema-ruangtulis { --aksen: #7a5c97; }
+.tema-ruangbaca { --aksen: #674c7d; }
+.laman-produk .kepala { background: var(--permukaan-produk); }
+.laman-produk .produk-kepala {
+  background: linear-gradient(110deg, var(--permukaan-produk) 12%, var(--sorotan-produk));
+}
+.laman-produk .lencana { background: var(--kertas); color: var(--aksen); }
+.laman-produk .info { background: var(--sorotan-produk); }
+.laman-produk .nav a[aria-current="page"] { color: var(--aksen); }
+.laman-produk :focus-visible { outline-color: var(--aksen); }
+.catatan-web { margin: 1rem 0 0; color: var(--redup); }
+.tautan-produk { color: var(--aksen); font-weight: 600; }
 .beranda .sub { max-width: 31ch; }
 .beranda .tombol { margin-top: .35rem; }
 .beranda, .bidang-lumut {
@@ -145,15 +163,15 @@ a:hover { text-decoration-thickness: 2px; }
   max-width: 100%;
   overflow-wrap: anywhere;
   padding: .66rem 1rem;
-  border: 1px solid var(--hijau);
+  border: 1px solid var(--aksen);
   border-radius: .35rem;
-  color: var(--hijau);
+  color: var(--aksen);
   text-decoration: none;
   font-weight: 600;
 }
-.tombol.utama { background: var(--hijau); color: var(--kertas); }
+.tombol.utama { background: var(--aksen); color: var(--kertas); }
 .tombol:hover { text-decoration: underline; }
-.kaki { background: var(--hijau); color: var(--kertas); padding-block: 2rem; }
+.kaki { background: var(--aksen); color: var(--kertas); padding-block: 2rem; }
 .kaki p { margin: 0; font-size: .9375rem; }
 
 @media (max-width: 48rem) {
