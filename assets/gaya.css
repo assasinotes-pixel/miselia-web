@@ -8,8 +8,7 @@
   --kertas: #f8f5ee;
   --redup: #4b574e;
   --garis: #c9cec4;
-  --hijau: #243b30;
-  --daun: #e0eadb;
+  --aksen: #243b30;
   --pasir: #f1dfc9;
   --lebar: 76rem;
 }
@@ -40,7 +39,7 @@ p { margin: 0 0 1em; }
   top: 1rem;
   left: 1rem;
   transform: translateY(-200%);
-  background: var(--hijau);
+  background: var(--aksen);
   color: white;
   padding: .65rem 1rem;
 }
@@ -61,49 +60,92 @@ p { margin: 0 0 1em; }
 
 .pahlawan, .produk-kepala, .bagian { padding-block: clamp(2.5rem, 7vw, 6rem); }
 .bagian { border-top: 1px solid var(--garis); }
-.pembuka, .dua-kolom, .kartu-grid {
+.pembuka, .dua-kolom {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1.25rem, 5vw, 5rem);
 }
-.pembuka { align-items: center; grid-template-columns: 1.25fr .75fr; }
-.beranda h1 { letter-spacing: -.045em; }
+.pembuka { align-items: center; grid-template-columns: 1fr .9fr; }
+.laman-studio {
+  --kertas: #fcfaf3;
+  --tinta: #29262a;
+  --aksen: #3d4c36;
+  --redup: #50594a;
+  --garis: #d9d8ca;
+}
+.laman-studio .pahlawan { padding-block: clamp(2rem, 6vw, 5rem); }
+.beranda h1 {
+  max-width: 9ch;
+  font-size: clamp(3.1rem, 8vw, 7.25rem);
+  letter-spacing: -.055em;
+  line-height: .97;
+  margin-bottom: .28em;
+}
 .sub, .makna { max-width: 42ch; color: var(--redup); font-size: clamp(1.08rem, 2vw, 1.27rem); }
 .produk-kepala p { max-width: 66ch; }
-.produk-kepala:nth-child(1) { background: var(--daun); }
+.laman-produk {
+  --kertas: #faf7fc;
+  --tinta: #2b2331;
+  --redup: #584b62;
+  --garis: #d9cce3;
+  --permukaan-produk: #f5f0fa;
+  --sorotan-produk: #eae0f3;
+}
+.tema-ruangtulis { --aksen: #7a5c97; }
+.tema-ruangbaca { --aksen: #674c7d; }
+.laman-produk .kepala { background: var(--permukaan-produk); }
+.laman-produk .produk-kepala {
+  background: linear-gradient(110deg, var(--permukaan-produk) 12%, var(--sorotan-produk));
+}
+.laman-produk .lencana { background: var(--kertas); color: var(--aksen); }
+.laman-produk .info { background: var(--sorotan-produk); }
+.laman-produk .nav a[aria-current="page"] { color: var(--aksen); }
+.laman-produk :focus-visible { outline-color: var(--aksen); }
+.catatan-web { margin: 1rem 0 0; color: var(--redup); }
+.tautan-produk { color: var(--aksen); font-weight: 600; }
+.beranda .sub { max-width: 31ch; }
+.beranda .tombol { margin-top: .35rem; }
+.beranda, .bidang-lumut {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.beranda::after, .bidang-lumut::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: url("img/studio/pola-miselium.svg") right center / contain no-repeat;
+  pointer-events: none;
+}
+.beranda::after {
+  inset: 0 -3rem 0 auto;
+  width: clamp(8rem, 23vw, 23rem);
+  opacity: .46;
+}
+.bidang-lumut::after {
+  inset: auto -3rem -2rem auto;
+  width: clamp(8rem, 15vw, 16rem);
+  height: clamp(8rem, 16vw, 17rem);
+  opacity: .28;
+}
+.ringkasan::after {
+  inset-inline: -3rem auto;
+  transform: scaleX(-1);
+}
 .bidang-merek {
   display: grid;
   place-items: center;
-  min-height: clamp(15rem, 31vw, 26rem);
-  border-radius: 48% 48% .75rem .75rem;
-  background: var(--daun);
+  min-height: clamp(18rem, 36vw, 30rem);
 }
-.bidang-merek img { width: clamp(5rem, 13vw, 10rem); }
-.label { font-size: .875rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--redup); }
-.beranda .tombol { margin-top: .5rem; }
-.kartu-grid { gap: 1rem; }
-.kartu {
-  position: relative;
-  min-width: 0;
-  border-radius: .75rem;
-  padding: clamp(1.25rem, 3vw, 2.5rem);
-}
-.kartu h3 { margin-top: .65rem; }
-.kartu-tulis { background: var(--hijau); color: var(--kertas); display: grid; grid-template-columns: 1fr minmax(5rem, 32%); gap: 1rem; align-items: center; }
-.kartu-tulis img { width: 100%; border-radius: .35rem; }
-.kartu-baca { background: var(--pasir); }
-.ilustrasi-baca { display: flex; gap: .28rem; margin-bottom: 1rem; }
-.ilustrasi-baca span {
-  min-width: 5rem;
-  padding: .45rem .6rem 1.05rem;
-  font: 1rem "Marcellus", Georgia, serif;
-  background: repeating-linear-gradient(transparent 0 4px, #839186 4px 5px) center bottom .45rem / 75% .5rem no-repeat, var(--kertas);
-  border-radius: .15rem;
-}
+.bidang-merek img { width: clamp(7rem, 17vw, 13rem); }
+.profil-studio { padding-block: clamp(3rem, 8vw, 7rem); }
+.profil-studio p { max-width: 63ch; }
+
 .lencana { display: inline-block; padding: .2rem .65rem; border: 1px solid currentColor; border-radius: 100vw; font-size: .875rem; }
-.tautan-teks { font-weight: 600; }
 a:hover { text-decoration-thickness: 2px; }
-.ringkasan { background: var(--daun); }
+.bidang-lumut { background: #e9ede1; }
+.isi-bidang-lumut { border-top: 1px solid #b9c3ad; padding-top: 1rem; }
+.ringkasan p { max-width: 56ch; margin: 0; }
 
 .ikon { width: 4.5rem; border-radius: 22%; margin-bottom: 1rem; }
 .daftar { padding-left: 1.15rem; margin: 0; }
@@ -121,20 +163,22 @@ a:hover { text-decoration-thickness: 2px; }
   max-width: 100%;
   overflow-wrap: anywhere;
   padding: .66rem 1rem;
-  border: 1px solid var(--hijau);
+  border: 1px solid var(--aksen);
   border-radius: .35rem;
-  color: var(--hijau);
+  color: var(--aksen);
   text-decoration: none;
   font-weight: 600;
 }
-.tombol.utama { background: var(--hijau); color: var(--kertas); }
+.tombol.utama { background: var(--aksen); color: var(--kertas); }
 .tombol:hover { text-decoration: underline; }
-.kaki { background: var(--hijau); color: var(--kertas); padding-block: 2rem; }
+.kaki { background: var(--aksen); color: var(--kertas); padding-block: 2rem; }
 .kaki p { margin: 0; font-size: .9375rem; }
 
 @media (max-width: 48rem) {
-  .pembuka, .dua-kolom, .kartu-grid { grid-template-columns: 1fr; }
-  .jeda { display: none; }
-  .bidang-merek { min-height: 12rem; }
+  .pembuka, .dua-kolom { grid-template-columns: 1fr; }
+  .beranda::after { inset-block-start: auto; height: 14rem; }
+  .bidang-lumut::after { inset-inline-end: -2.75rem; inset-block-end: -.75rem; opacity: .23; }
+  .ringkasan::after { inset-inline: -2.75rem auto; }
+  .bidang-merek { min-height: 14rem; margin-top: .75rem; }
   .galeri { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
