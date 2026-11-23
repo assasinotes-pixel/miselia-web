@@ -87,31 +87,34 @@ p { margin: 0 0 1em; }
 .produk-kepala:nth-child(1) { background: var(--daun); }
 .beranda .sub { max-width: 31ch; }
 .beranda .tombol { margin-top: .35rem; }
-.bidang-merek {
+.beranda {
   position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+.beranda::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0 -3rem 0 auto;
+  width: clamp(8rem, 23vw, 23rem);
+  background: url("img/studio/pola-miselium.svg") right center / contain no-repeat;
+  opacity: .46;
+  pointer-events: none;
+}
+.bidang-merek {
   display: grid;
   place-items: center;
   min-height: clamp(18rem, 36vw, 30rem);
-  isolation: isolate;
-  border-radius: 46% 46% .4rem .4rem;
-  background: var(--hijau);
 }
-.bidang-merek::before, .bidang-merek::after {
-  position: absolute;
-  z-index: -1;
-  content: "";
-  border: 1px solid #fcfaf755;
-  border-radius: inherit;
-}
-.bidang-merek::before { inset: 6%; }
-.bidang-merek::after { inset: 11%; }
 .bidang-merek img { width: clamp(7rem, 17vw, 13rem); }
 .profil-studio { padding-block: clamp(3rem, 8vw, 7rem); }
 .profil-studio p { max-width: 63ch; }
 
 .lencana { display: inline-block; padding: .2rem .65rem; border: 1px solid currentColor; border-radius: 100vw; font-size: .875rem; }
 a:hover { text-decoration-thickness: 2px; }
-.ringkasan { background: #efece0; }
+.bidang-lumut { background: #e9ede1; }
+.isi-bidang-lumut { border-top: 1px solid #b9c3ad; padding-top: 1rem; }
 .ringkasan p { max-width: 56ch; margin: 0; }
 
 .ikon { width: 4.5rem; border-radius: 22%; margin-bottom: 1rem; }
@@ -143,6 +146,7 @@ a:hover { text-decoration-thickness: 2px; }
 
 @media (max-width: 48rem) {
   .pembuka, .dua-kolom { grid-template-columns: 1fr; }
+  .beranda::after { inset-block-start: auto; height: 14rem; }
   .bidang-merek { min-height: 14rem; margin-top: .75rem; }
   .galeri { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
