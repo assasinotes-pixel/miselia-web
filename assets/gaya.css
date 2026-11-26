@@ -200,7 +200,8 @@ a:hover { text-decoration-thickness: 2px; }
 }
 .tombol.utama { background: var(--aksen); color: var(--kertas); }
 .tombol:hover { text-decoration: underline; }
-.kaki { background: var(--aksen); color: var(--kertas); padding-block: 2rem; }
+.kaki { background: #29262a; color: #fcfaf7; padding-block: 2rem; }
+.kaki :focus-visible { outline-color: #fcfaf7; }
 .kaki p { margin: 0; font-size: .9375rem; }
 
 @media (max-width: 48rem) {
@@ -210,4 +211,68 @@ a:hover { text-decoration-thickness: 2px; }
   .ringkasan::after { inset-inline: -2.75rem auto; }
   .bidang-merek { min-height: 14rem; margin-top: .75rem; }
   .galeri { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.laman-beranda {
+  --kertas: #fcfaf7;
+  --lumut-pucat: #e8ebe3;
+}
+.laman-beranda .beranda::after,
+.laman-beranda .ringkasan::after { content: none; }
+.laman-beranda .bidang-merek {
+  min-height: clamp(12rem, 35vw, 27rem);
+  margin: 0;
+  border: 1px solid var(--garis);
+  border-radius: .75rem;
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--lumut-pucat);
+}
+.laman-beranda .kartu-aplikasi { background: var(--kertas); }
+.laman-beranda .bidang-lumut { background: var(--lumut-pucat); }
+.laman-beranda .tautan-tentang {
+  display: inline-block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+@media (max-width: 30rem) {
+  .kepala .wadah { gap: .25rem 1rem; }
+  .laman-beranda .beranda { padding-top: 2rem; }
+}
+
+.laman-beranda .ringkasan h2 { margin-bottom: 0; }
+.laman-beranda .ringkasan .isi-bidang-lumut {
+  border-top: 0;
+  padding-top: 0;
+}
+.laman-beranda #kontak { padding-block: clamp(2rem, 4vw, 3.25rem); }
+
+@media (max-width: 25rem) {
+  .kepala .nav { width: 100%; }
+  .nav a { min-height: 2.75rem; }
+}
+
+.tekstur-miselium {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tekstur-miselium path {
+    stroke-dasharray: 1 1;
+    animation: tumbuh-miselium 1.65s ease-in-out both;
+  }
+  .tekstur-miselium path:nth-child(2n) { animation-delay: .2s; }
+  .tekstur-miselium path:nth-child(3n) { animation-delay: .35s; }
+}
+
+@keyframes tumbuh-miselium {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
 }
